@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Registro de Superheroes [J]</string>
+    <string name="super_hero_register_title_tv">Super Hero Register</string>
+    <string name="superhero_nombre">Nombre</string>
+    <string name="superhero_alterego_et">Alterego</string>
+    <string name="superhero_biography_tv">Bio</string>
+    <string name="superhero_description_tv">Description</string>
+    <string name="superhero_power_tv">Power</string>
+    <string name="storage_btn">Storage</string>
+</resources>
