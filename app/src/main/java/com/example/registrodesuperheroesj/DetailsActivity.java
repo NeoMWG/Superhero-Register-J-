@@ -17,7 +17,17 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_details);
 
-        binding.buttonReturnMain.setOnClickListener(v -> {
+        Bundle extras = getIntent().getExtras();
+        String superHeroName = extras.getString("superHeroName");
+        String superHeroAlterEgo = extras.getString("superHeroAlterEgo");
+        String superHeroDescription = extras.getString("superHeroDescription");
+        float superHeroRating = extras.getFloat("superHeroRating");
+        binding.tvSuperheroNamedDa.setText(superHeroName);
+        binding.tvSuperheroAlteregoDa.setText(superHeroAlterEgo);
+        binding.tvBiographyDescriptionDa.setText(superHeroDescription);
+        binding.rbRatingbarDa.setRating(superHeroRating);
+
+        binding.btnCloseLayoutDa.setOnClickListener(v -> {
             finish();
         });
     }

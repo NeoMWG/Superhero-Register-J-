@@ -39,7 +39,7 @@
 
             app:cardElevation="16dp"
             app:layout_constraintBottom_toTopOf="@id/tv_bio"
-            app:layout_constraintEnd_toStartOf="@id/et_name"
+            app:layout_constraintEnd_toStartOf="@id/etNameMa"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_title">
 
@@ -53,7 +53,7 @@
 
 
         <EditText
-            android:id="@+id/et_name"
+            android:id="@+id/etNameMa"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -67,7 +67,7 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:id="@+id/et_alter_ego"
+            android:id="@+id/etAlterEgoMa"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -98,13 +98,13 @@
             android:text="@string/superhero_biography_tv"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/et_description"
+            app:layout_constraintBottom_toTopOf="@id/etDescriptionMa"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/line" />
 
         <EditText
-            android:id="@+id/et_description"
+            android:id="@+id/etDescriptionMa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -127,14 +127,14 @@
             android:text="@string/superhero_power_tv"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/ratingBar"
+            app:layout_constraintBottom_toTopOf="@id/ratingBarMa"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_description" />
+            app:layout_constraintTop_toBottomOf="@+id/etDescriptionMa" />
 
 
         <RatingBar
-            android:id="@+id/ratingBar"
+            android:id="@+id/ratingBarMa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"
@@ -163,9 +163,29 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ratingBar"
+            app:layout_constraintTop_toBottomOf="@id/ratingBarMa"
             app:rippleColor="@color/amber"
             app:strokeColor="@color/copper"
+            app:strokeWidth="2dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonClear"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:elevation="4dp"
+            android:text="+"
+            android:textAllCaps="false"
+            android:textColor="@color/casablanca"
+            android:translationZ="4dp"
+            app:backgroundTint="@color/luckyPoint"
+            app:cornerRadius="8dp"
+            app:iconPadding="8dp"
+            app:iconTint="@color/casablanca"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ratingBarMa"
+            app:rippleColor="@color/material_dynamic_neutral_variant90"
+            app:strokeColor="@color/cardview_shadow_end_color"
             app:strokeWidth="2dp" />
 
 

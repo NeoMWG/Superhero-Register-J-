@@ -7,4 +7,9 @@
     <string name="superhero_description_tv">Description</string>
     <string name="superhero_power_tv">Power</string>
     <string name="storage_btn">Storage</string>
+    <string name="superhero_details_tv_da">Superhero Details</string>
+    <string name="superhero_named_tv_da">Superhero Name</string>
+    <string name="superhero_alterego_tv_da">Superhero Alterego</string>
+    <string name="biography_tv_da">Biography</string>
+    <string name="power_tv_da">Power</string>
 </resources>
