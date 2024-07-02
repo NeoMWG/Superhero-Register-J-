@@ -5,6 +5,11 @@
 
     <data>
 
+        <variable
+            name="superHero"
+            type="com.example.registrodesuperheroesj.SuperHero" />
+
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -60,6 +65,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:hint="@string/superhero_nombre"
+            android:text="@={superHero.name}"
             android:textColorHint="#546E7A"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/card"
@@ -75,6 +81,7 @@
             android:layout_marginBottom="16dp"
             android:hint="@string/superhero_alterego_et"
             android:minHeight="48dp"
+            android:text="@={superHero.alterEgo}"
             android:textColorHint="#546E7A"
             app:layout_constraintBottom_toBottomOf="@id/card"
             app:layout_constraintEnd_toEndOf="parent"
@@ -111,6 +118,7 @@
             android:layout_marginEnd="24dp"
             android:hint="@string/superhero_description_tv"
             android:padding="16dp"
+            android:text="@={superHero.description}"
             android:textColorHint="#546E7A"
             app:layout_constraintBottom_toTopOf="@id/tv_power"
             app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +147,7 @@
             android:layout_height="wrap_content"
             android:numStars="5"
             android:progressTint="@color/copper"
-            android:rating="3"
+            android:rating="@={superHero.rating}"
             android:stepSize="1"
             app:layout_constraintBottom_toTopOf="@id/buttonStorage"
             app:layout_constraintEnd_toEndOf="parent"

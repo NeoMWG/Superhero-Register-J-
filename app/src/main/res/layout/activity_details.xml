@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="superHero"
+            type="com.example.registrodesuperheroesj.SuperHero" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -59,6 +63,7 @@
             android:gravity="start"
             android:hint="@string/superhero_named_tv_da"
             android:padding="8dp"
+            android:text="@{superHero.name}"
             android:textSize="15sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,6 +90,7 @@
             android:gravity="start"
             android:hint="@string/superhero_alterego_tv_da"
             android:padding="8dp"
+            android:text="@{superHero.alterEgo}"
             android:textSize="15sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -112,6 +118,7 @@
             android:gravity="center"
             android:hint="@string/superhero_description_tv"
             android:padding="48dp"
+            android:text="@{superHero.description}"
             android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -135,7 +142,7 @@
             android:isIndicator="true"
             android:numStars="5"
             android:progressTint="@color/copper"
-            android:rating="3"
+            android:rating="@{superHero.rating}"
             android:stepSize="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

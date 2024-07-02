@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.registrodesuperheroesj.databinding.ActivityDetailsBinding;
-import com.example.registrodesuperheroesj.databinding.ActivityMainBinding;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -17,18 +16,32 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_details);
 
-        Bundle extras = getIntent().getExtras();
-        String superHeroName = extras.getString("superHeroName");
-        String superHeroAlterEgo = extras.getString("superHeroAlterEgo");
-        String superHeroDescription = extras.getString("superHeroDescription");
-        float superHeroRating = extras.getFloat("superHeroRating");
-        binding.tvSuperheroNamedDa.setText(superHeroName);
-        binding.tvSuperheroAlteregoDa.setText(superHeroAlterEgo);
-        binding.tvBiographyDescriptionDa.setText(superHeroDescription);
-        binding.rbRatingbarDa.setRating(superHeroRating);
+        initialize();
+    }
 
-        binding.btnCloseLayoutDa.setOnClickListener(v -> {
-            finish();
-        });
+    private void initialize() {
+        SuperHero superHero = extractSuperHeroFromIntent();
+        bindSuperHeroToView(superHero);
+        setupListeners();
+    }
+
+    private SuperHero extractSuperHeroFromIntent() {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String superHeroName = extras.getString(Constants.SUPER_HERO_NAME);
+            String superHeroAlterEgo = extras.getString(Constants.SUPER_HERO_ALTER_EGO);
+            String superHeroDescription = extras.getString(Constants.SUPER_HERO_DESCRIPTION);
+            float superHeroRating = extras.getFloat(Constants.SUPER_HERO_RATING);
+            return new SuperHero(superHeroName, superHeroAlterEgo, superHeroDescription, superHeroRating);
+        }
+        return new SuperHero("", "", "", 0);
+    }
+
+    private void bindSuperHeroToView(SuperHero superHero) {
+        binding.setSuperHero(superHero);
+    }
+
+    private void setupListeners() {
+        binding.btnCloseLayoutDa.setOnClickListener(v -> finish());
     }
 }
