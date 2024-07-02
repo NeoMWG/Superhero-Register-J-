@@ -1,5 +1,6 @@
 package com.example.registrodesuperheroesj;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +33,11 @@ public class DetailsActivity extends AppCompatActivity {
             String superHeroAlterEgo = extras.getString(Constants.SUPER_HERO_ALTER_EGO);
             String superHeroDescription = extras.getString(Constants.SUPER_HERO_DESCRIPTION);
             float superHeroRating = extras.getFloat(Constants.SUPER_HERO_RATING);
+            Bitmap bitmap = extras.getParcelable(Constants.BITMAP_KEY);
+
+            if (bitmap != null) {
+                binding.ivSuperheroDa.setImageBitmap(bitmap);
+            }
             return new SuperHero(superHeroName, superHeroAlterEgo, superHeroDescription, superHeroRating);
         }
         return new SuperHero("", "", "", 0);
