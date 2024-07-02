@@ -2,10 +2,11 @@ package com.example.registrodesuperheroesj;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
 import com.example.registrodesuperheroesj.databinding.ActivityMainBinding;
-import com.example.registrodesuperheroesj.models.SuperHero;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,34 +17,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        setupButtonListeners();
+        binding.buttonStorage.setOnClickListener(v -> {
+            String superHeroName = binding.etNameMa.getText().toString();
+            String superHeroAlterEgo = binding.etAlterEgoMa.getText().toString();
+            String superHeroDescription = binding.etDescriptionMa.getText().toString();
+            float superHeroRating = binding.ratingBarMa.getRating();
+            openDetailActivity(superHeroName, superHeroAlterEgo, superHeroDescription,superHeroRating);
+        });
+
+        binding.buttonClear.setOnClickListener(v -> {
+            clearFields();
+        });
     }
 
-    private void setupButtonListeners() {
-        binding.buttonStorage.setOnClickListener(v -> handleStorageButtonClick());
-        binding.buttonClear.setOnClickListener(v -> clearFields());
-    }
-
-    private void handleStorageButtonClick() {
-        SuperHero superHero = getSuperHeroFromInputs();
-        openDetailActivity(superHero);
-    }
-
-    private SuperHero getSuperHeroFromInputs() {
-        String name = binding.etNameMa.getText().toString();
-        String alterEgo = binding.etAlterEgoMa.getText().toString();
-        String description = binding.etDescriptionMa.getText().toString();
-        float rating = binding.ratingBarMa.getRating();
-
-        return new SuperHero(name, alterEgo, description, rating);
-    }
-
-    private void openDetailActivity(SuperHero superHero) {
+    private void openDetailActivity(String superHeroName, String superHeroAlterEgo, String superHeroDescription, float superHeroRating) {
         Intent intent = new Intent(this, DetailsActivity.class);
-        intent.putExtra(DetailsActivity.SUPER_HERO_NAME, superHero.getName());
-        intent.putExtra(DetailsActivity.SUPER_HERO_ALTER_EGO, superHero.getAlterEgo());
-        intent.putExtra(DetailsActivity.SUPER_HERO_DESCRIPTION, superHero.getDescription());
-        intent.putExtra(DetailsActivity.SUPER_HERO_RATING, superHero.getRating());
+        intent.putExtra("superHeroName", superHeroName);
+        intent.putExtra("superHeroAlterEgo", superHeroAlterEgo);
+        intent.putExtra("superHeroDescription", superHeroDescription);
+        intent.putExtra("superHeroRating", superHeroRating);
         startActivity(intent);
     }
 
@@ -53,4 +45,5 @@ public class MainActivity extends AppCompatActivity {
         binding.etDescriptionMa.setText("");
         binding.ratingBarMa.setRating(0);
     }
+
 }
